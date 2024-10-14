@@ -1,0 +1,28 @@
+/backend
+│
+├── /config
+│   └── db.js              # Configuración de la conexión a MongoDB
+│
+├── /controllers
+│   ├── authController.js   # Controlador de autenticación (registro y login)
+│   └── carController.js    # Controlador de autos (CRUD, búsqueda, recomendación)
+│
+├── /models
+│   ├── userModel.js        # Modelo de usuarios
+│   └── carModel.js         # Modelo de autos
+│
+├── /routes
+│   ├── authRoutes.js       # Rutas de autenticación
+│   └── carRoutes.js        # Rutas de autos
+│
+├── /middlewares
+│   └── authMiddleware.js   # Middleware para proteger rutas con JWT
+│
+├── /utils
+│   ├── generateToken.js    # Función para generar JWT
+│   └── chatGPT.js          # Función para consumir la API de ChatGPT
+│
+├── .env                    # Variables de entorno (clave JWT, conexión MongoDB, API Key ChatGPT)
+├── package.json            # Dependencias del proyecto
+├── index.js                # Archivo principal donde inicia el servidor
+└── README.md               # Documentación del proyecto
