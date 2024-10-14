@@ -1,6 +1,6 @@
 import { getDB } from '../config/db.js';
 import { crearUsuario } from '../models/userModel.js';
-import { generarJWT } from '../utils/generateToken.js';
+import { generateToken } from '../utils/generateToken.js';
 
 export const registerUser = async (req, res) => {
   const { nombre, apellido, dni, email, password } = req.body;
@@ -16,7 +16,7 @@ export const registerUser = async (req, res) => {
   const newUser = crearUsuario(nombre, apellido, dni, email, password);
   const result = await db.collection('users').insertOne(newUser);
 
-  const token = generarJWT(result.insertedId);
+  const token = generateToken(result.insertedId);
   res.status(201).json({ message: 'Usuario registrado con éxito', token });
 };
 

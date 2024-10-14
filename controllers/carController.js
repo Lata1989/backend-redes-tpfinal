@@ -1,7 +1,7 @@
 import { getDB } from '../config/db.js';
 import { crearAuto } from '../models/carModel.js';
 import { ObjectId } from 'mongodb';
-import { obtenerRecomendacion } from '../utils/chatGPT.js';
+import { getChatGPTRecommendation } from '../utils/chatGPT.js';
 
 // Crear un nuevo auto
 export const createCarListing = async (req, res) => {
@@ -96,7 +96,7 @@ export const recommendCar = async (req, res) => {
 
   const cars = await db.collection('cars').find({}).toArray();
   
-  const recomendacion = await obtenerRecomendacion(preferencias, cars);
+  const recomendacion = await getChatGPTRecommendation(preferencias, cars);
   
   res.json(recomendacion);
 };
